@@ -1,0 +1,26 @@
+{
+  "name": "essensys",
+  "version": "1.0.0",
+  "description": "Essesnys Test",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp",
+    "webserver": "gulp webserver",
+    "test": "testcommand"
+  },
+  "author": "Imran Sarwar",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-jshint": "^2.0.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0"
+  }
+}
