@@ -11,7 +11,8 @@
   "author": "Imran Sarwar",
   "license": "ISC",
   "dependencies": {
-    "angular": "^1.5.5"
+    "angular": "^1.5.5",
+    "angular-csv-import": "0.0.27"
   },
   "devDependencies": {
     "browser-sync": "^2.12.8",

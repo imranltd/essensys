@@ -51,8 +51,14 @@ gulp.task('copyHtml', function() {
 
 gulp.task('copyRequiredJs', function() {
   // copy any html files in source/ to public/
-  return gulp.src('node_modules/angular/angular.js')
+	gulp.src('node_modules/angular/angular.js')
   	.pipe(gulp.dest('public/js/node_modules/angular'));
+
+	gulp.src('node_modules/angular-csv-import/dist/angular-csv-import.js')
+  		.pipe(gulp.dest('public/js/node_modules/angular-csv-import'));
+
+  	gulp.src('app/data.csv')
+  		.pipe(gulp.dest('public/data/'));
 });
 
 gulp.task('build', ['copyHtml', 'jshint', 'copyRequiredJs']);
