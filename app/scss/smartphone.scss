@@ -1,19 +1,22 @@
 @import 'tablet';
 
 body{
-//	background-color: blue;
+	header{
+		nav{
+			font-size: 2.5vw;
+		}
+	}
 	main{
 		width:100%;
-		font-size: 1.6vw;
+		font-size: 2.5vw;
 		.promo{
 			float: none;
 			display: block;
 			max-width: 300px;
 		}
-	table{
-	font-size: 1.6vw;
-}
+		table{
+			font-size: 2.1vw;
+		}
 
 	}
-
 }

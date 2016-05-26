@@ -28,7 +28,7 @@ gulp.task('serve',function() {
 });
 
 gulp.task('sass', function() {
-    return gulp.src("app/scss/*.scss")
+    return gulp.src("app/scss/main.scss")
         .pipe(sass())
         .pipe(gulp.dest("public/css"))
         .pipe(browserSync.stream());

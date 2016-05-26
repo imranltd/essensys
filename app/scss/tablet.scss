@@ -1,11 +1,12 @@
 @import 'desktop';
 body{
-	background-color: green;
 	header{
+		div#logo{
+			background-size: 150px;
+		}
 		nav{
-			position: absolute;
 			right:0;
-			width: 200px;
+			width: 130px;
 			font-size: 1.4vw;
 			ul{
 				position:absolute;
@@ -13,7 +14,7 @@ body{
 				li{
 					float: right;
 					width:100%;
-					background-color: #fff;
+					background-color: $white;
 				}
 				&.shown{
 					display:block;
@@ -27,7 +28,7 @@ body{
 			}
 			.navBtn{
 				display:block;
-				width:100%;
+				width:50px;
 			}
 		}
 	}
