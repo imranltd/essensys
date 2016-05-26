@@ -1,0 +1,42 @@
+@import 'desktop';
+body{
+	background-color: green;
+	header{
+		nav{
+			position: absolute;
+			right:0;
+			width: 200px;
+			font-size: 1.4vw;
+			ul{
+				position:absolute;
+				float: right;
+				li{
+					float: right;
+					width:100%;
+					background-color: #fff;
+				}
+				&.shown{
+					display:block;
+					li:first-child:before{
+						content: "• ";
+					}
+				}
+				&.hidden{
+					display:none;
+				}
+			}
+			.navBtn{
+				display:block;
+				width:100%;
+			}
+		}
+	}
+	main{
+		width: 768px;
+		font-size: 1.4vw;
+		table{
+			font-size: 1.3vw;
+		}
+	}
+}
+

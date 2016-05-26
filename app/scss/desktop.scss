@@ -1,0 +1,132 @@
+$break-small: 320px;
+$break-large: 1200px;
+$green: #a3d900;
+$grey: #e3e3e3;
+$white: #fff;
+
+
+body{
+	font-size: 100%;
+	font-family: Tahoma, serif, sans-serif;
+	header{
+		width:100%;
+		border-bottom: 1px solid #ccc;
+		float: left;
+		div#logo{
+			background-image: url('../images/logo.png');
+			float: left;
+			width: 200px;
+			background-repeat: no-repeat;
+			height: 40px;
+			text-indent: -9999px;
+		}
+		nav{
+			text-transform: uppercase;
+			font-size: 1vw;
+			float: right;
+			button{
+				color:#000;
+			}
+			
+			ul{
+				list-style: none;
+			    padding:0;
+			    margin:0;
+			    float: left;
+
+				li{
+					float:left;
+					padding: 0 5px;
+					a{
+						text-decoration: none;
+						color: #000;
+						&:hover{
+							color: $green;
+						}
+					}
+				}
+				li:before {
+				    content: "• ";
+				    color: $green;
+				    padding: 0 5px;
+				}
+				li:first-child:before{
+					content: "";
+				}
+			}
+			.navBtn{
+				display:none;
+			}
+		}
+	}
+	main{
+		clear: both;
+		width:800px;
+		margin: 0 auto;
+		padding: 10px 0;
+		font-size: 1.3vw;
+		.promo{
+			float: right;
+    		padding: 5px;
+		}
+		table{
+			border-spacing: 0;
+			border-collapse: separate;
+			font-size: 1vw;
+			margin: 0 auto;
+			width: 90%;
+			thead tr th, tbody tr td{
+				border: 1px solid #e3e3e3;
+				padding: 5px;
+			}
+			caption{
+				display: none;
+			}
+		}
+		.button-container{
+			width:100%;
+			margin: 0 auto;
+			text-align: center;
+			.showTableButton{
+				border: 1px solid #000;;
+				margin: 20px;
+				//height: 20px;
+				width: 200px;
+				padding: 5px;
+				background: $grey ;
+				/* Old Browsers */
+				background: -moz-linear-gradient(left, $grey  0%, $white 100%);
+				 /* FF3.6+ */
+				 background: -webkit-gradient(left top, right top, color-stop(0%, $white), color-stop(100%, $white));
+				/* Chrome, Safari4+ */
+				background: -webkit-linear-gradient(left, $grey  0%, $white 100%);
+				 /* Chrome10+,Safari5.1+ */
+				 background: -o-linear-gradient(left, $grey  0%, $white 100%);
+				 /* Opera 11.10+ */
+				 background: -ms-linear-gradient(left, $grey  0%, $white 100%);
+				 /* IE 10+ */
+				 background: linear-gradient(to right, $grey  0%, $white 100%);
+				/* W3C */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$grey', endColorstr='$white', GradientType=1 );
+			}
+		}
+		h1{
+			background-color:#fff;
+			background-image: radial-gradient(#999 1px, transparent 1px),
+			radial-gradient(#001 1px, transparent 1px);
+			background-size:4px 4px;
+			background-position: 0 0, 0px 4px;
+			text-align: center;
+			span{
+				background-color: white;
+				padding: 0 4px;
+				margin-top: -10px; 
+			}
+		}
+	}
+}
+
+
+
+
+
