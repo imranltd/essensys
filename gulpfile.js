@@ -1,11 +1,10 @@
 var gulp = require('gulp'),
-	//webserver = require('gulp-webserver');
 	browserSync = require('browser-sync').create(),
 	gutil = require('gulp-util'),
 	jshint = require('gulp-jshint'),
-	clean = require('gulp-clean');
-
-
+	clean = require('gulp-clean'),
+	sass = require('gulp-sass'),
+	imagemin = require('gulp-imagemin');
 
 gulp.task('jshint', function() {
   return gulp.src('app/javascript/**/*.js')
@@ -17,14 +16,10 @@ gulp.task('jshint', function() {
 gulp.task('watch', function() {
   gulp.watch('app/javascript/**/*.js', ['jshint']);
   gulp.watch('app/*.html', ['copyHtml']);
-  //gulp.watch('app/*.html', ['copyHtml']).on('change', browserSync.reload);
-  
-  //browserSync.reload();
+  gulp.watch('app/scss/*.scss', ['sass']);
 });
 
-// Static Server + watching scss/html files
 gulp.task('serve',function() {
-
     browserSync.init({
         server: "./public"
     });
@@ -35,10 +30,16 @@ gulp.task('serve',function() {
 gulp.task('sass', function() {
     return gulp.src("app/scss/*.scss")
         .pipe(sass())
-        .pipe(gulp.dest("app/css"))
+        .pipe(gulp.dest("public/css"))
         .pipe(browserSync.stream());
 
 
+});
+
+gulp.task('imagemin', function() {
+	gulp.src('app/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('public/images'))
 });
 
 gulp.task('copyHtml', function() {
@@ -61,7 +62,7 @@ gulp.task('copyRequiredJs', function() {
   		.pipe(gulp.dest('public/data/'));
 });
 
-gulp.task('build', ['copyHtml', 'jshint', 'copyRequiredJs']);
+gulp.task('build', ['copyHtml', 'jshint', 'copyRequiredJs', 'sass', 'imagemin']);
 
 gulp.task('clean', function () {
   return gulp.src('public', {read: false})

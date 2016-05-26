@@ -1,35 +1,86 @@
-<html ng-app="myApp"  ng-controller="myCtrl">
-<head>
-<title>Essensys</title>
-<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
-<script type="text/javascript" src="js/node_modules/angular/angular.js"></script>
-<script type="text/javascript" src="js/node_modules/angular-csv-import/angular-csv-import.js"></script>
-<script type="text/javascript" src="/js/main.js"></script>
-</head>
-<body>
-<h1>imran test</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Essensys</title>
+		<script type="text/javascript" src="js/node_modules/angular/angular.js"></script>
+		<script type="text/javascript" src="js/node_modules/angular-csv-import/angular-csv-import.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body ng-app="myApp" ng-controller="myCtrl">
 
-First Name: <input type="text" ng-model="firstName"><br>
-Last Name: <input type="text" ng-model="lastName"><br>
-<br>
-Full Name: {{firstName + " " + lastName}}
+	<header>
+		<div id="logo">logo</div>
+		<nav ng-init="showMenu=false">
+			<button class="navBtn" ng-click="showMenu=true" ng-hide="showMenu">Show Menu</button>
+			<button class="navBtn" ng-click="showMenu=false" ng-show="showMenu">Hide Menu</button>
+			<ul ng-class="showMenu ? 'shown' : 'hidden'">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Tech</a></li>
+				<li><a href="#">Ecosystem</a></li>
+				<li><a href="#">Flexible Workspace</a></li>
+				<li><a href="#">Smart Buildings</a></li>
+				<li><a href="#">Resources</a></li>
+				<li><a href="#">Blog</a></li>
+				<li><a href="#">Contact</a></li>
+				<li><a href="#">Jeff Login</a></li>
+				<li><a href="#">Demo</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		<h1>
+			<span>TEST</span>
+		</h1>
 
-<ng-csv-import content="dataCSV"
-    header="csv.header" 
-    separator="csv.separator"
-    result="csv.result"
-    accept="csv.accept"></ng-csv-import>
+		<p><img src="images/promo.png" class="promo" alt="Promo Image" title="promo image"/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non venenatis dui. Etiam vestibulum hendrerit libero et dignissim. Vivamus condimentum odio nec ligula scelerisque dapibus. Sed interdum, justo non consectetur vehicula, nulla dolor placerat risus, eu ullamcorper massa libero nec tellus. Donec lectus risus, ullamcorper nec odio quis, lobortis lobortis nisi. Aliquam est dolor, aliquam vitae dignissim nec, consequat eu lorem. Proin condimentum hendrerit orci quis suscipit. Aliquam porttitor turpis velit, dictum placerat libero vestibulum vitae. Vivamus convallis nulla at ipsum iaculis bibendum. Ut quis finibus metus. Etiam pharetra, est tincidunt facilisis ultricies, diam ante tempus nisi, a condimentum leo enim vel justo. Nulla non cursus massa. In et justo in quam pretium consequat sed non lectus. Curabitur ac quam quis magna vehicula commodo.
+		</p>
 
-    {{csv.result}}
+		<p>Aliquam erat volutpat. Sed diam est, pharetra eget felis in, fermentum placerat lectus. Sed venenatis erat ex, nec tincidunt nunc eleifend in. Etiam ac nibh sed leo tincidunt lacinia. Integer libero mauris, auctor vitae vehicula porta, ullamcorper suscipit nunc. Ut non mi ex. Nullam id metus at sem sagittis porttitor. Sed a facilisis magna, quis lacinia sapien. Morbi sit amet lacinia turpis, non imperdiet risus. Donec sed mattis est, sed congue neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		<section>
+			<div class="button-container">
+				<button 
+					ng-click="showTable=true" 
+					ng-show="!showTable" 
+					class="showTableButton">Show Table</button>
+				<button 
+					ng-click="showTable=false" 
+					ng-show="showTable" 
+					class="showTableButton">Hide Table</button>
+			</div>
 
-<button ng-click="readCSV()">
-	
-  <table>
-    <tr ng-repeat="x in data">
-      <td ng-repeat="y in x">{{ y }}</td>
-    </tr>
-  </table>
+			<table summary="Data loaded from csv" ng-show="showTable">
+				<caption>This is the caption for the table</caption>
+				<thead ng-repeat="row in data track by $index" ng-if="$index==0">
+					<tr>
+						<th ng-repeat="item in row"  ng-class='{in:$first}' >{{ (item) ? item :'---' }}</th>
+					</tr>
+				</thead>
+				<tfoot>
+					<tr>
+						<th colspan="7">imran@imransarwar.co.uk</th>
+					</tr>
+				</tfoot>
+				<tbody>
+					<tr ng-repeat="row in data track by $index" ng-if="$index>0">
+						<td ng-repeat="item in row"  ng-class='{in:$first}'>{{ (item) ? item :'---' }}</td>
+					</tr>
+				</tbody>
+			</table>
 
-    {{output}}
-</body>
+			<div ng-show="showTable">
+				<p>If you would like to see data from you own local CSV file</p>
+				<ng-csv-import 
+					content="csv.content"
+					header="csv.header" 
+					separator="csv.separator"
+					result="csv.result"
+					accept="csv.accept"
+				></ng-csv-import>
+			</div>
+		</secton>
+	</main>
+	</body>
 </html>

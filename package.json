@@ -2,6 +2,10 @@
   "name": "essensys",
   "version": "1.0.0",
   "description": "Essesnys Test",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/imransarwar/essensys"
+  },
   "main": "index.js",
   "scripts": {
     "start": "gulp",
@@ -12,12 +16,14 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.5",
-    "angular-csv-import": "0.0.27"
+    "angular-csv-import": "0.0.27",
+    "gulp-sass": "^2.3.1"
   },
   "devDependencies": {
     "browser-sync": "^2.12.8",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
+    "gulp-imagemin": "^3.0.1",
     "gulp-jshint": "^2.0.1",
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
